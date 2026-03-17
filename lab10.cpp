@@ -72,5 +72,27 @@ double gRec(unsigned i) {
 *******************************************************************************/
 
 double gStack(unsigned i) {
-    // TODO
+    ArrayStack<unsigned> callStack(i + 1);
+
+    while (true) {
+        callStack.push(i);
+
+        if (i == 0) {
+            cout << "Base case!\n";
+            break;
+        }
+
+        i--;
+    }
+
+    double result = 3.2;
+
+    callStack.pop();
+
+    while (!callStack.isEmpty()) {
+        callStack.pop();
+        result += 1.1;
+    }
+
+    return result;
 }
